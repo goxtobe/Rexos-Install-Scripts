@@ -1,0 +1,47 @@
+#!/bin/bash
+# Configurar el sistema desde entorno chroot
+
+dialog --clear --inputbox \
+	"Entre el nombre de su partición root"\
+	    5 60 /dev/ 2>$TEMPNAME
+ROOT=`cat $TEMPNAME`
+
+dialog --clear --inputbox \
+	"Entre el nombre de su partición swap"\
+	    5 60 /dev/ 2>$TEMPNAME
+SWAP=`cat $TEMPNAME`
+
+cat > $SOURCEDIR/etc/fstab << "EOF"
+# Begin /etc/fstab
+
+# file system  mount-point  type     options             dump  fsck
+#                                                              order
+
+/dev/$ROOT     /            <fff>    defaults            1     1
+/dev/$SWAP     swap         swap     pri=1               0     0
+proc           /proc        proc     nosuid,noexec,nodev 0     0
+sysfs          /sys         sysfs    nosuid,noexec,nodev 0     0
+devpts         /dev/pts     devpts   gid=5,mode=620      0     0
+tmpfs          /run         tmpfs    defaults            0     0
+devtmpfs       /dev         devtmpfs mode=0755,nosuid    0     0
+
+# End /etc/fstab
+EOF
+
+grub-install --root-directory=$SOURCEDIR /dev/$ROOT
+
+
+cat > $SOURCEDIR/boot/grub/grub.cfg << "EOF"
+# Begin /boot/grub/grub.cfg
+set default=0
+set timeout=5
+
+insmod ext2
+set root=$ROOT
+
+menuentry "Rex OS, GNU/Linux" {
+        linux   /boot/vmlinuz root=/dev/$ROOT rw
+}
+EOF
+
+.$INSTALLDIR/install_menu

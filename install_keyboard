@@ -1,0 +1,28 @@
+#!/bin/bash
+#Keyboard - Script de configuración.
+
+KEYDIR=/usr/share/keymaps/i386
+
+dialog --clear  --menu "Seleccione una distribución de teclado" 18 60 5\
+    US "Standard US layout" \
+    ES "Standard ES layout" \
+    UK "UK layout" \
+    DE "German layout (QWERTZ)" \
+    FR "French layout (AZERTY)" \
+    BE "Belgian layout (AZERTY)"  2>$TEMPNAME
+
+SELECTION=`cat $TEMPNAME`
+
+case $SELECTION
+in
+US ) KEYFILE=$KEYDIR/qwerty/us.map.gz ;;
+ES ) KEYFILE=$KEYDIR/qwerty/es.map.gz ;;
+UK ) KEYFILE=$KEYDIR/qwerty/uk.map.gz ;;
+DE ) KEYFILE=$KEYDIR/qwertz/de.map.gz ;;
+FR ) KEYFILE=$KEYDIR/azerty/fr.map.gz ;;
+BE ) KEYFILE=$KEYDIR/azerty/be-latin1.map.gz ;;
+esac
+# Salva el nombre de distribucion de teclado para después.
+echo -n $KEYFILE /tmp/keyfile
+loadkeys $KEYFILE
+.$INSTALLDIR/install_menu

@@ -1,0 +1,8 @@
+#!/bin/bash
+# Script de reinicio del sistema
+
+dialog --yesno "Listo par reiniciar?" 18 60
+if [ $? = 0 ]
+then
+   reboot
+fi

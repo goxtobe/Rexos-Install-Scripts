@@ -1,0 +1,14 @@
+#!/bin/bash
+#Particionar el disco duro.
+
+dialog --clear --menu "Seleccione un dispositivo para particionar"\
+     18 60  6 \
+     hda "Primario IDE master" \
+     hdb "Primario IDE slave" \
+     hdc "Secondario IDE master" \
+     hdd "Secondario IDE slave" \
+     sda "Primer SCSI" \
+     sdb "Segundo SCSI" 2>$TEMPNAME
+SELECTION=`cat $TEMPNAME`
+cfdisk /dev/$SELECTION
+.$INSTALLDIR/install_menu

@@ -1,0 +1,21 @@
+#!/bin/bash
+# Scripts de Presentacion - Instalación de Rexos.
+export TEMPNAME=/tmp/choice
+export SCRIPTDIR=/install/scripts
+export SOURCEDIR=/mnt
+export TARGETDIR=/target
+
+dialog --clear --msgbox  \
+ "Bienvenido a la Instalacion de REXOS\n
+Presione Enter para iniciar la instalación.\n 
+Presione ALT-F2, ALT-F3... ALT-F6 para iniciar\n
+una linea de comandos\n 
+\n 
+Por favor asegurese de que su disco esta respaldado\n 
+antes de iniciar la instalacion" 18 60 
+
+dialog --clear --msgbox \
+        "Todos sus datos seran eliminados usando este\n 
+metodo de instalacion. Hagalo bajo su propio riesgo" 10 50 
+
+.$INSTALLDIR/install_menu

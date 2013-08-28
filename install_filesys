@@ -1,0 +1,18 @@
+#!/bin/sh
+# Selecciona e instala el sistema en la partición /
+
+dialog --inputbox "Entre el nombre de la partición root"\
+        5 60 /dev/ 2>$TEMPNAME
+SELECTION=`cat $TEMPNAME`
+
+dialog --yesno \
+   "TODOS los dato en $SELECTION sera eliminado para siempre!\n
+Esta seguro de que desea continuar?" 18 60 
+
+if [ $? = 0 ]
+then
+   echo -n $SELECTION >/tmp/rootfs
+   mke2fs $SELECTION
+   fsarchiver restfs /install/RexOSystem.fsa id=0,dest=/dev/$SELECTION	
+fi
+.$INSTALLDIR/install_menu

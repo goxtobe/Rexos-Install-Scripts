@@ -1,0 +1,17 @@
+#!/bin/bash
+# Scripts de Instalacion de Rexos.
+
+
+ 
+dialog --clear --menu "REXOS - Menu de instalación" \
+        18 60 8 \
+        keyboard "Seleccionar una distribución de teclado" \
+        partition "Particionar el disco duro" \
+        swap "Seleccionar una partición de intercambio" \
+        filesys "Crear un sistema de archivos e instalar REXOS" \
+        configure "Configurar instalación" \
+        reboot "Reiniciar el sistema " 2>$TEMPNAME
+SELECTION=`cat $TEMPNAME`
+./$SCRIPTDIR/install_$SELECTION
+#done
+

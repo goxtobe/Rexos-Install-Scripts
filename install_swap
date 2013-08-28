@@ -1,0 +1,18 @@
+#!/bin/bash
+# Selecciona e instala una partición de instercambio swap.
+
+dialog --inputbox "Entre el nombre de su partición de intercambio"\
+        5 60 /dev/ 2>$TEMPNAME
+SELECTION=`cat $TEMPNAME`
+
+dialog --yesno \
+   "TODOS los datos seran destruidos en $SELECTION para siempre!\n
+Esta seguro de que desea continuar?" 18 60 
+
+if [ $? = 0 ]
+then
+   echo -n $SELECTION >/tmp/swappart
+   mkswap $SELECTION
+   swapon $SELCTION
+fi
+.$INSTALLDIR/install_menu
