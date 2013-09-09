@@ -1,6 +1,0 @@
--------------Install Scripts REXOS------------
-Para  poder  hacer funcionar el conjuto  de scripts
-usted necesita colocarlos en el directorio /install.
-
-
-El primer script en ser ejecutado es install_top

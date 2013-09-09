@@ -1,12 +1,33 @@
- Rexos-Install-Scripts
-=====================
+Rexos-Install-Scripts
+=======================
+Este repositorio contiene  un grupo de Scripts  que permiten instalar el  sistema 
+entero a base de los principales directorios del sistema. Este conjunt de Scripts 
+son utilizados  en Rexos  como medio de instalación y coordinan desde la creación
+de particiones gasta el reinicio del sistema.
+Rexos-Install-Scripts estan escritos en Bash.
 
-Hello there, this is the Pre-Alpha Version for the 
-Rexos Install Scripts.
 
-Find out more information --- 
-<http://rexos-en.blogspot.mx>
+Dependencias
+=======================
+Los Scripts  requieren ser ejecutados desde un sistema anfitrion o medio Live para
+instalar el sistema Rexos.
+Rexos-Install-Scripts ncesitan  de dialog como dependencia principal para  mostrar
+la interfaz grafica ncurses al usuario.
+El primer Script en  ser ejecutado debe ser install_top, para que este coordine al
+resto de los Scripts.
+Para  poder  hacer funcionar el conjuto de scripts usted necesita colocarlos en el
+directorio /install.
 
+Licencia
+=======================
+Este software es publicado bajo GNU GENERAL PUBLIC LICENSE.
 
-This software was written by Erick M.C. 
-2013
+Garantía
+=======================
+Este software es publicado SIN GARANTÍA, uselo bajo su propio riesgo.
+ 
+
+Este software fue escrito por 
+Erick M.C. goxtobe@gmail.com
+<http://www.rexos-es.blogspot.mx> 
+<http://www.rexos-en.blogspot.mx>
