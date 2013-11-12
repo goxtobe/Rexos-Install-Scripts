@@ -1,9 +1,9 @@
 Rexos-Install-Scripts
 =======================
 Este repositorio contiene  un grupo de Scripts  que permiten instalar el  sistema 
-entero a base de los principales directorios del sistema. Este conjunt de Scripts 
-son utilizados  en Rexos  como medio de instalación y coordinan desde la creación
-de particiones gasta el reinicio del sistema.
+entero a base de los principales directorios del sistema. 
+Este conjunto  de  Scripts son utilizados  en Rexos  como medio de instalación y 
+coordinan desde la creación de particiones hasta el reinicio del sistema.
 Rexos-Install-Scripts estan escritos en Bash.
 
 

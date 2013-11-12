@@ -13,6 +13,7 @@ if [ $? = 0 ]
 then
    echo -n $SELECTION >/tmp/rootfs
    mke2fs $SELECTION
+   mkfs -t ext4 /dev/$SELECTION
    fsarchiver restfs /install/RexOSystem.fsa id=0,dest=/dev/$SELECTION	
 fi
 .$INSTALLDIR/install_menu
