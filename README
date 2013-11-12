@@ -11,7 +11,7 @@ Dependencias
 =======================
 Los Scripts  requieren ser ejecutados desde un sistema anfitrion o medio Live para
 instalar el sistema Rexos.
-Rexos-Install-Scripts ncesitan  de dialog como dependencia principal para  mostrar
+Rexos-Install-Scripts necesitan  de dialog como dependencia principal para  mostrar
 la interfaz grafica ncurses al usuario.
 El primer Script en  ser ejecutado debe ser install_top, para que este coordine al
 resto de los Scripts.
